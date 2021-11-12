@@ -55,6 +55,11 @@ jobs:
             java-version: '8'
        - name: Unit test
          run: |
-          cd $GITHUB_WORKSPACE/g11n-ws
-          ./gradlew test jacocoTestReport
-
+          cd $GITHUB_WORKSPACE
+          ./gradlew test
+          ls -la
+          str=$(printf '=%.0s' {1..50})
+          coverage run --source='.' -m unittest discover
+          pip list | grep coverage
+          coverage report -m
+          coverage xml -i
