@@ -53,4 +53,5 @@ jobs:
          run: |
           cd $TRAVIS_BUILD_DIR/devops/sonar/
           ./gradlew test jacocoTestReport
+          
 
