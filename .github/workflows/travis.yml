@@ -57,8 +57,8 @@ jobs:
          run: |
           cd $GITHUB_WORKSPACE
           ./gradlew test
-          ls -la
           str=$(printf '=%.0s' {1..50})
+          ls -la
           coverage run --source='.' -m unittest discover
           pip list | grep coverage
           coverage report -m
