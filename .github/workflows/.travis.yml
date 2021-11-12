@@ -1,0 +1,26 @@
+name: main
+on: [pull_request, push]
+jobs:
+  pre-process:
+     name: pre-process
+     runs-on: ubuntu-latest
+     outputs:
+       were-only-docs-updated: ${{ steps.were-only-docs-updated-action.outputs.were-only-docs-updated }}
+     steps:
+       - name: Checkout code
+         uses: actions/checkout@v2
+         with: 
+           fetch-depth: 2. 
+       - name: Get commit range
+         id: get-commit-range-action
+         uses: ./.github/actions/get-commit-range-action
+       - name: Were only docs updated
+         id: were-only-docs-updated-action
+         uses: ./.github/actions/were-only-docs-updated-action
+         with: 
+           commit-range: ${{ steps.get-commit-range-action.outputs.commit-range }}
+   check-header:
+      name: Check Header
+  
+
+
