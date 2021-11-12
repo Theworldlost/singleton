@@ -57,6 +57,7 @@ jobs:
          run: |
           cd $GITHUB_WORKSPACE
           ./gradlew test
+          pip install requests coverage==4.5 pyyaml
           str=$(printf '=%.0s' {1..50})
           ls -la
           coverage run --source='.' -m unittest discover
