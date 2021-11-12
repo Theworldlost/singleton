@@ -51,6 +51,6 @@ jobs:
             java-version: '8'
        - name: Unit test
          run: |
-            cd $TRAVIS_BUILD_DIR/devops/sonar
-           ./gradlew test jacocoTestReport
+          cd $TRAVIS_BUILD_DIR/devops/sonar/
+          ./gradlew test jacocoTestReport
 
